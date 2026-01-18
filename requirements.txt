@@ -1,0 +1,22 @@
+# Data Extraction
+telethon
+python-dotenv
+pandas
+
+# Transformation & Database
+dbt-postgres
+sqlalchemy
+psycopg2-binary
+
+# API
+fastapi
+uvicorn
+pydantic
+
+# AI / Computer Vision
+ultralytics
+opencv-python-headless
+
+# Orchestration
+dagster
+dagster-webserver
