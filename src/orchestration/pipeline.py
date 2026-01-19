@@ -1,6 +1,6 @@
 import subprocess
 import os
-from dagster import op, job, logger
+from dagster import op, job, logger, ScheduleDefinition, Definitions
 
 
 @op
@@ -50,3 +50,15 @@ def telehealth_daily_pipeline():
     loaded = load_data(scraped)
     enriched = enrich_data(loaded)
     transform_data(enriched)
+
+
+# Schedule: Run every day at midnight
+daily_schedule = ScheduleDefinition(
+    job=telehealth_daily_pipeline,
+    cron_schedule="0 0 * * *",
+)
+
+defs = Definitions(
+    jobs=[telehealth_daily_pipeline],
+    schedules=[daily_schedule],
+)
