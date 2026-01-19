@@ -183,4 +183,4 @@ dbt test --project-dir dbt_project
 ```
 
 ---
-*Built with ❤️ by the TeleHealth Data Engineering Team.*
+*Built by Mifta Y.*
