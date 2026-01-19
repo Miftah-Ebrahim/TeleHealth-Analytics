@@ -1,0 +1,12 @@
+telehealth:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: user
+      password: password
+      port: 5432
+      dbname: telehealth
+      schema: dbt_postgres
+      threads: 4
