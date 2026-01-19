@@ -78,3 +78,5 @@ Run dbt tests to ensure data quality:
 dbt test
 ```
 *Includes checks for non-negative views and valid message dates.*
+
+## Verification Update
