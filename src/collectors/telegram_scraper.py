@@ -4,8 +4,10 @@ import asyncio
 import logging
 import random
 from datetime import datetime
-from dotenv import load_dotenv
-from telethon import TelegramClient
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
+from src.config import settings
 
 # Create logs directory
 os.makedirs("logs", exist_ok=True)
@@ -18,10 +20,8 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Load environment variables
-load_dotenv()
-API_ID = os.getenv("TG_API_ID")
-API_HASH = os.getenv("TG_API_HASH")
+API_ID = settings.TG_API_ID
+API_HASH = settings.TG_API_HASH
 
 CHANNELS = ["@lobelia4cosmetics", "@tikvahpharma", "@CheMed123"]
 LIMIT = 100
