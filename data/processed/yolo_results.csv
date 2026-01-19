@@ -1,0 +1,2 @@
+message_id,channel_name,detected_class,confidence,image_category,all_classes,image_path
+1000,test_channel,bottle,0.6423274278640747,promotional,"bottle, person, bottle, person",data/raw/images\test_channel\1000.jpg

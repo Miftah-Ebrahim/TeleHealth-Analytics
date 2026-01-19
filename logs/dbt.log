@@ -1,0 +1,13 @@
+[0m22:10:33.310306 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000212107416A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021211ACFED0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021211ACFB10>]}
+
+
+============================== 22:10:33.344916 | ff630997-72ca-4c15-bbb4-5f64e3c65e9d ==============================
+[0m22:10:33.344916 [info ] [MainThread]: Running with dbt=1.11.2
+[0m22:10:33.347990 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'dbt_project', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt build --project-dir dbt_project --profiles-dir dbt_project', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m22:10:33.357403 [error] [MainThread]: Encountered an error:
+Runtime Error
+  dbt_project.yml does not parse to a dictionary
+[0m22:10:33.363547 [debug] [MainThread]: Command `dbt build` failed at 22:10:33.362955 after 0.67 seconds
+[0m22:10:33.365183 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021211AD63F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000212119BAB10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002121193B240>]}
+[0m22:10:33.366946 [debug] [MainThread]: Flushing usage events
+[0m22:10:36.175579 [debug] [MainThread]: An error was encountered while trying to flush usage events

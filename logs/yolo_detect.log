@@ -1,0 +1,15 @@
+2026-01-19 22:09:20,024 - INFO - Starting AI Enrichment Process...
+2026-01-19 22:09:26,695 - INFO - Saved 1 detection results to data/processed\yolo_results.csv
+2026-01-19 22:09:29,126 - ERROR - Database load failed: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: FATAL:  password authentication failed for user "user"
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-19 22:10:37,153 - INFO - Starting AI Enrichment Process...
+2026-01-19 22:10:37,907 - INFO - Saved 1 detection results to data/processed\yolo_results.csv
+2026-01-19 22:10:38,430 - ERROR - Database load failed: (psycopg2.OperationalError) connection to server at "127.0.0.1", port 5432 failed: FATAL:  password authentication failed for user "user"
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-19 22:13:30,825 - INFO - Starting AI Enrichment Process...
+2026-01-19 22:13:31,652 - INFO - Saved 1 detection results to data/processed\yolo_results.csv
+2026-01-19 22:13:32,130 - ERROR - Database load failed: (psycopg2.OperationalError) connection to server at "127.0.0.1", port 5432 failed: FATAL:  password authentication failed for user "user"
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)

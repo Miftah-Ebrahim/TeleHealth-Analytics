@@ -7,22 +7,19 @@ from sqlalchemy import create_engine, text
 from datetime import datetime
 
 # Configure logging
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
+from src.config import settings
+
+# Configure logging
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
 
 # Database Credentials
-DB_HOST = "localhost"
-DB_PORT = "5432"
-DB_NAME = "telehealth"
-DB_USER = "user"
-DB_PASSWORD = "password"
-
-# Construct Connection String
-DB_CONNECTION_STR = (
-    f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
-)
+DB_CONNECTION_STR = settings.DB_CONNECTION_STR
 
 
 def load_json_files(base_directory):
