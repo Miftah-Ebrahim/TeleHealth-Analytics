@@ -10,7 +10,9 @@ from .schemas import (
     ChannelActivity,
     VisualContentStats,
     VisualContentResponse,
+    SearchResult,
 )
+
 import sys
 import os
 
@@ -125,3 +127,42 @@ def get_visual_content_stats(db: Session = Depends(get_db)):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Query failed: {str(e)}")
+
+
+@app.get("/api/search/messages", response_model=List[SearchResult])
+def search_messages(keyword: str, db: Session = Depends(get_db)):
+    """
+    Search messages by keyword (ILIKE).
+    """
+    try:
+        # Searching raw messages or fct_messages.
+        # Using fct_messages linked to dim_channels might be better but raw has text more reliably?
+        # fct_messages usually has keys. Let's assume raw text is in raw table or stg.
+        # Logic: Select from raw.telegram_messages
+
+        query = text("""
+            SELECT 
+                r.message_id, 
+                r.channel_name, 
+                r.message_date::date as date,
+                r.message_text
+            FROM raw.telegram_messages r
+            WHERE r.message_text ILIKE :keyword
+            ORDER BY r.message_date DESC
+            LIMIT 50
+        """)
+
+        search_pattern = f"%{keyword}%"
+        result = db.execute(query, {"keyword": search_pattern}).fetchall()
+
+        return [
+            {
+                "message_id": row[0],
+                "channel_name": row[1],
+                "date": row[2],
+                "message_text": row[3],
+            }
+            for row in result
+        ]
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Search failed: {str(e)}")

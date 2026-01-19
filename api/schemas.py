@@ -25,3 +25,10 @@ class VisualContentStats(BaseModel):
 
 class VisualContentResponse(BaseModel):
     stats: List[VisualContentStats]
+
+
+class SearchResult(BaseModel):
+    message_id: int
+    channel_name: str
+    date: date
+    message_text: str
