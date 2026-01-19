@@ -41,25 +41,25 @@
 ```mermaid
 graph TD
     subgraph "Data Sources"
-        TG[Telegram Channels]
+        TG["Telegram Channels"]
     end
 
     subgraph "Extraction & Loading"
-        S[Scraper (Telethon)] -->|JSON & Images| RAW[Raw Data]
-        RAW -->|Recursive Load| PG[(Postgres DB)]
+        S["Scraper (Telethon)"] -->|"JSON & Images"| RAW["Raw Data"]
+        RAW -->|"Recursive Load"| PG[("Postgres DB")]
     end
 
     subgraph "Transformation & Enrichment"
-        PG -->|dbt Build| DBT[dbt Models]
-        RAW -->|Images| YOLO[YOLOv8 AI]
-        YOLO -->|Classifications| PG
-        DBT -->|Fact Tables| MARTS[Data Marts]
+        PG -->|"dbt Build"| DBT["dbt Models"]
+        RAW -->|"Images"| YOLO["YOLOv8 AI"]
+        YOLO -->|"Classifications"| PG
+        DBT -->|"Fact Tables"| MARTS["Data Marts"]
     end
 
     subgraph "Serving & Orchestration"
-        MARTS --> API[FastAPI]
-        DAG[Dagster/Orchestrator] --> S
-        DAG --> L[Loader]
+        MARTS --> API["FastAPI"]
+        DAG["Dagster/Orchestrator"] --> S
+        DAG --> L["Loader"]
         DAG --> YOLO
         DAG --> DBT
     end
